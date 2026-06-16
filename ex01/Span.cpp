@@ -6,7 +6,7 @@
 /*   By: yafahfou <yafahfou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 10:48:31 by yafahfou          #+#    #+#             */
-/*   Updated: 2026/06/12 10:59:36 by yafahfou         ###   ########.fr       */
+/*   Updated: 2026/06/16 15:23:21 by yafahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Span::Span() : _N(0){}
 
 Span::Span(unsigned int N) : _N(N){}
+
+Span::Span(const Span &other) : _N(other._N), _vec(other._vec){}
 
 Span::~Span(){}
 
@@ -62,7 +64,7 @@ int Span::longestSpan()
 
 void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    if (std::distance(begin, end) + _vec.size() > _N)
+    if ((size_t)std::distance(begin, end) + _vec.size() > _N)
         throw std::out_of_range("Cannot add more numbers, capacity reached.");
     _vec.insert(_vec.end(), begin, end);
 }

@@ -3,7 +3,7 @@ CC=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 OBJDIR = .obj
 SRCS= main.cpp
-HEADERS= easyfind.hpp
+HEADERS= easyfind.hpp easyfind.tpp
 OBJS=$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 all: $(NAME)
 $(NAME): $(OBJS) $(HEADERS)

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yafahfou <yafahfou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 13:21:45 by yafahfou          #+#    #+#             */
-/*   Updated: 2026/06/09 14:47:33 by yafahfou         ###   ########.fr       */
+/*   Created: 2026/06/16 00:00:00 by yafahfou          #+#    #+#             */
+/*   Updated: 2026/06/16 00:00:00 by yafahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-#define EASYFIND_HPP
-
-#include <iostream>
-#include <algorithm>
-
-
-class NotFoundException : public std::exception
-{
-    public:
-        const char* what() const throw(){ return "Element Not Found"; }
-};
-
 template<typename T>
-typename T::iterator easyfind(T &arr, int element);
-
-#include "easyfind.tpp"
-
-#endif
+typename T::iterator easyfind(T &arr, int element)
+{
+    typename T::iterator it = std::find(arr.begin(), arr.end(), element);
+    if (it == arr.end())
+        throw NotFoundException();
+    return it;
+}

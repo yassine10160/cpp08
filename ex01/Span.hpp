@@ -6,7 +6,7 @@
 /*   By: yafahfou <yafahfou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 10:38:19 by yafahfou          #+#    #+#             */
-/*   Updated: 2026/06/12 10:58:50 by yafahfou         ###   ########.fr       */
+/*   Updated: 2026/06/16 15:24:25 by yafahfou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Span
     public:
         Span();
         Span(unsigned int N);
+        Span(const Span &other);
         ~Span();
         Span &operator=(const Span &other);
         void addNumber(int num);
@@ -36,10 +37,9 @@ class Span
 
         class NotEnoughNumbersException : public std::exception
         {
-            public: 
+            public:
                 const char* what() const throw(){ return "Not enough numbers to find a span.";}
         };
 };
-
 
 #endif

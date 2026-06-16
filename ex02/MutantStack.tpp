@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MutantStack.hpp"
-
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 

@@ -33,4 +33,6 @@ class MutantStack : public std::stack<T>
         const_iterator end() const;
 };
 
+#include "MutantStack.tpp"
+
 #endif
